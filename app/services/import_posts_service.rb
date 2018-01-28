@@ -36,6 +36,14 @@ class ImportPostsService < ApplicationService
       post.created_at = content['created_time']
       post.updated_at = content['updated_time']
       post.permalink_url = content['permalink_url']
+      post.user = create_user(content['from'])
+    end
+  end
+
+  def create_user(content)
+    User.find_or_create_by(fid: content['id']) do |user|
+      user.fid = content['id']
+      user.name = content['name']
     end
   end
 

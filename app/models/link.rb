@@ -1,0 +1,2 @@
+class Link < Post
+end

@@ -1,4 +1,5 @@
 /*
+ *= require bootstrap/dist/css/bootstrap
  *= require_tree .
  *= require_self
  */

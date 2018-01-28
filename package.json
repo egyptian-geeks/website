@@ -1,5 +1,10 @@
 {
   "name": "website",
   "private": false,
-  "dependencies": {}
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.0.0",
+    "feather-icons": "^4.5.0",
+    "jquery": "^3.3.1"
+  }
 }

@@ -6,7 +6,24 @@ group related content.
 # Requirements
 
 * Ruby 2.5.0
+* SQlite3
+* Nodejs
+* npm
+* Yarn
 
+# Installation
+
+* Install bundler
+
+  ```shell
+  gem install bundler
+  ```
+* Install dependencies
+
+  ```shell
+  bundle install
+  yarn install
+  ```
 
 # How it is generated
 

@@ -1,0 +1,18 @@
+%nav.navbar.navbar-dark.bg-primary.navbar-expand-lg
+  %a.navbar-brand{:href => "#"} Egyptian Geeks
+  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item.active
+        = link_to root_path, class: 'nav-link' do
+          %i.align-middle{"data-feather" => "home"}
+          Home
+      %li.nav-item.active
+        %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
+          %i.align-middle{"data-feather" => "facebook"}
+          Facebook
+      %li.nav-item.active
+        %a.nav-link.active{:href => "https://github.com/egyptian-geeks"}
+          %i.align-middle{"data-feather" => "github"}
+          Github

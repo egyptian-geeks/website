@@ -1,0 +1,2 @@
+class Music < Post
+end

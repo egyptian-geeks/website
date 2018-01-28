@@ -1,0 +1,2 @@
+class Note < Post
+end

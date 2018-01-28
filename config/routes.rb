@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts
+  resources :events, controller: :posts
+  resources :links, controller: :posts
+  resources :music, controller: :posts
+  resources :notes, controller: :posts
+  resources :offers, controller: :posts
+  resources :photos, controller: :posts
+  resources :status, controller: :posts
+  resources :videos, controller: :posts
+  root 'posts#index'
 end

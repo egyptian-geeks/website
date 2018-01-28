@@ -1,9 +1,6 @@
 - @posts.each do |post|
-  .card.my-3
-    .card-body
-      .card-text
-        = image_tag user_avatar(post.user), class: 'rounded float-left mx-2'
-        = post.user.name
+  = render 'users/h_card', user: post.user
+  .card.mt-1.mb-3
     .card-body
       .card-text{ dir: :auto }= simple_format(post.message)
     .card-body

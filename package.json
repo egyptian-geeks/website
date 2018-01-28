@@ -1,5 +1,5 @@
 {
   "name": "website",
-  "private": true,
+  "private": false,
   "dependencies": {}
 }

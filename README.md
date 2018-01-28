@@ -24,6 +24,11 @@ group related content.
   bundle install
   yarn install
   ```
+* import posts, it assumes `posts` project is cloned in the same directory as this project
+
+  ```shell
+  rails posts:import
+  ```
 
 # How it is generated
 

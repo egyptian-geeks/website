@@ -2,7 +2,8 @@ FROM ruby:2.5.0
 ENV LANG=C.UTF-8
 ENV RAILS_ENV production
 
-RUN apt-get update && apt-get install -qq -y build-essential git nodejs yarn --fix-missing --no-install-recommends
+RUN apt-get update && apt-get install -qq -y build-essential git nodejs --fix-missing --no-install-recommends
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 WORKDIR /tmp
 COPY Gemfile* /tmp/
@@ -15,6 +16,6 @@ ADD . /app
 RUN git clone https://github.com/egyptian-geeks/posts
 
 WORKDIR /app
-RUN rails db:migrate posts:import assets:precompile
+RUN rails db:migrate assets:precompile posts:import
 
 CMD puma -C config/puma.rb

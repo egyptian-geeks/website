@@ -1,9 +1,8 @@
 - @posts.each do |post|
-  = render 'users/h_card', user: post.user
-  .card.mt-1.mb-3
+  = render 'users/h_card', user: post.user do
     .card-body
       .card-text{ dir: :auto }= simple_format(post.message)
-    .card-body
+    .card-footer
       = link_to post, class: 'card-link' do
         %i.align-middle{"data-feather" => "eye"}
         view

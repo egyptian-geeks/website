@@ -1,6 +1,6 @@
-.card.my-3
-  .card-body
-    = render 'shared/original_post', post: photo
-  .card-body
-    .card-text
-      = photo.message
+.card-body
+  %h5.card-title= link_to photo.name, photo.link
+  .card-text
+    = photo.message
+= link_to photo.link do
+  = image_tag photo.picture, class: 'card-img-top'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128192516) do
+ActiveRecord::Schema.define(version: 20180129184327) do
 
   create_table "posts", force: :cascade do |t|
     t.text "message"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20180128192516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.text "picture"
+    t.string "name"
     t.index ["fid"], name: "index_posts_on_fid", unique: true
     t.index ["permalink_url"], name: "index_posts_on_permalink_url", unique: true
   end

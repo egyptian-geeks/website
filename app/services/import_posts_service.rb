@@ -23,8 +23,11 @@ class ImportPostsService < ApplicationService
       content = YAML.load_file(file)
       Rails.logger.warn("Importing: #{file}")
       import_post(content)
+
       # Progress Bar
-      printf("\r[%-50s] #{i + 1}/#{files_count} ", '=' * ((i+1.0) / files_count * 50))
+      if i % 100 == 0
+        printf("\r[%-50s] #{i + 1}/#{files_count} ", '=' * ((i+1.0) / files_count * 50))
+      end
     end
 
     puts "\n"
@@ -40,6 +43,8 @@ class ImportPostsService < ApplicationService
       post.fid = content['id']
       post.message = content['message']
       post.link = content['link']
+      post.picture = content['picture']
+      post.name = content['name']
       post.type = content['type'].capitalize
       post.created_at = content['created_time']
       post.updated_at = content['updated_time']

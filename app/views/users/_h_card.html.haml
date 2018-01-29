@@ -1,7 +1,7 @@
 .card.mt-3
   .card-body
     .card-text
-      = image_tag user_avatar(user), class: 'rounded float-left mx-2'
+      = image_tag user_avatar(user), class: 'rounded float-left mr-3'
       = link_to user_facebook_profile(user), class: 'strong' do
         %strong= user.name
       %div

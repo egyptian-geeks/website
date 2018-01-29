@@ -1,6 +1,8 @@
-.card.my-3
+.card-body
+  .card-text
+    = simple_format link.message
+.card.m-3
   .card-body
-    = render 'shared/original_post', post: link
-  .card-body
-    .card-text
-      = link.message
+    = link_to link.link do
+      = image_tag link.picture if link.picture?
+      = link.name

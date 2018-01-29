@@ -4,6 +4,7 @@ ENV RAILS_ENV production
 
 RUN apt-get update && apt-get install -qq -y build-essential git nodejs --fix-missing --no-install-recommends
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+RUN source /root/.bashrc
 
 WORKDIR /tmp
 COPY Gemfile* /tmp/

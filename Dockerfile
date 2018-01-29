@@ -2,9 +2,10 @@ FROM ruby:2.5.0
 ENV LANG=C.UTF-8
 ENV RAILS_ENV production
 
-RUN apt-get update && apt-get install -qq -y build-essential git nodejs --fix-missing --no-install-recommends
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-RUN source /root/.bashrc
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
+&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+RUN apt-get update && apt-get install -qq -y build-essential git nodejs yarn --fix-missing --no-install-recommends
+ENV ENV PATH "$PATH:/root/.yarn/bin"
 
 WORKDIR /tmp
 COPY Gemfile* /tmp/

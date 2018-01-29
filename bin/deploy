@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+ssh $1 docker pull egygeeks/website
+ssh $1 docker stop egygeeks_website
+ssh $1 docker run --rm -d -p 127.0.0.1:10001:3000 -e SECRET_KEY_BASE=$EGYGEEKS_SECRET_KEY_BASE --name=egygeeks_website egygeeks/website

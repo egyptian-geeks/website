@@ -29,8 +29,7 @@ group related content.
 * import posts, it assumes `posts` project is cloned in the same directory as this project
 
   ```shell
-  rails db:migrate
-  rails posts:import
+  rails db:setup posts:import
   ```
 
 # How it is generated

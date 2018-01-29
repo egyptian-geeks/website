@@ -16,6 +16,6 @@ RUN git clone https://github.com/egyptian-geeks/posts
 
 WORKDIR /app
 RUN yarn install
-RUN rails db:migrate assets:precompile posts:import
+RUN rails db:setup assets:precompile posts:import
 
 CMD puma -C config/puma.rb

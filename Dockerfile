@@ -1,0 +1,20 @@
+FROM ruby:2.5.0
+ENV LANG=C.UTF-8
+ENV RAILS_ENV production
+
+RUN apt-get update && apt-get install -qq -y build-essential git nodejs yarn --fix-missing --no-install-recommends
+
+WORKDIR /tmp
+COPY Gemfile* /tmp/
+RUN bundle install --without="development test" -j8
+WORKDIR /
+
+RUN mkdir /app
+RUN mkdir -p /app/tmp/pids
+ADD . /app
+RUN git clone https://github.com/egyptian-geeks/posts
+
+WORKDIR /app
+RUN rails db:migrate posts:import assets:precompile
+
+CMD puma -C config/puma.rb

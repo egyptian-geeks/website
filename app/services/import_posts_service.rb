@@ -16,18 +16,18 @@ class ImportPostsService < ApplicationService
     files_pattern = File.join(posts_directory, '*.yml')
     files = Dir.glob(files_pattern)
     files_count = files.count
-    puts "================================================================="
-    puts "=> Importing #{files_count} Ticket"
-    puts "================================================================="
+
+    puts "=> Importing #{files_count} Post"
+
     files.each_with_index do |file, i|
       content = YAML.load_file(file)
       Rails.logger.warn("Importing: #{file}")
       import_post(content)
       # Progress Bar
-      printf("\r[%-50s] #{i+1}/#{files_count} ", "=" * ((i+1.0)/files_count*50) )
+      printf("\r[%-50s] #{i + 1}/#{files_count} ", '=' * ((i+1.0) / files_count * 50))
     end
-    puts "Files Imported Successfully"
-    puts "================================================================="
+
+    puts "\n"
   end
 
   def import_post(content)

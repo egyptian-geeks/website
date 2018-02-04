@@ -25,7 +25,7 @@ class ImportDirectoryService < ApplicationService
       import_post(content)
 
       # Progress Bar
-      if i % 100 == 0
+      if i % 100 == 0 || i + 1 == files_count
         printf("\r[%-50s] #{i + 1}/#{files_count} ", '=' * ((i+1.0) / files_count * 50))
       end
     end

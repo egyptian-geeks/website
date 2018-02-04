@@ -3,4 +3,6 @@ class Post < ApplicationRecord
   validates_uniqueness_of :permalink_url, :fid
 
   belongs_to :user
+  has_many :comments
+  has_many :reactions
 end

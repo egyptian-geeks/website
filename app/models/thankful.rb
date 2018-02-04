@@ -1,0 +1,2 @@
+class Thankful < Reaction
+end

@@ -1,0 +1,2 @@
+class Wow < Reaction
+end

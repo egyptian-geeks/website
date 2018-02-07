@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validates_uniqueness_of :fid
 
   has_many :posts
+  has_many :comments
 end

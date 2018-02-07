@@ -8,4 +8,8 @@
         .badge.badge-primary
           = user.posts.count
           Posts
+        .badge.badge-secondary
+          = user.comments.count
+          Comments
+
   = yield

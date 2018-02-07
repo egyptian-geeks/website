@@ -9,7 +9,7 @@ class ImportCommentService < ApplicationService
       fid = comment['id']
       Comment.find_or_create_by(fid: fid) do |c|
         c.fid = fid
-        c.message = comment['message']
+        c.message = comment['message']&.force_encoding('UTF-8')
         c.created_at = comment['created_time']
         c.user = ImportUserService.call(comment['from'])
         c.post = post

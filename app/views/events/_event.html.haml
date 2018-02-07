@@ -2,4 +2,4 @@
   = render 'shared/original_post', post: event
 .card-body
   .card-text
-    = event.message
+    = format_message(event.message)

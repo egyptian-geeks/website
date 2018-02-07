@@ -2,4 +2,4 @@
   = render 'shared/original_post', post: offer
 .card-body
   .card-text
-    = offer.message
+    = format_message(offer.message)

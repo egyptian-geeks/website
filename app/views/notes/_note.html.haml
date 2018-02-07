@@ -2,4 +2,4 @@
   = render 'shared/original_post', post: note
 .card-body
   .card-text
-    = note.message
+    = format_message(note.message)

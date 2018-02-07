@@ -7,13 +7,13 @@
       %ul.navbar-nav
         %li.nav-item.active
           = link_to root_path, class: 'nav-link' do
-            %i.align-middle{"data-feather" => "home"}
+            = icon "home"
             Home
         %li.nav-item.active
           %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
-            %i.align-middle{"data-feather" => "facebook"}
+            = icon "facebook"
             Facebook
         %li.nav-item.active
           %a.nav-link.active{:href => "https://github.com/egyptian-geeks"}
-            %i.align-middle{"data-feather" => "github"}
+            = icon "github"
             Github

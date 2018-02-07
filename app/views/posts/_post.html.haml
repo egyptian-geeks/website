@@ -2,17 +2,17 @@
   = render post
   .card-footer
     .d-inline.card-link
-      %i.align-middle{"data-feather" => "thumbs-up"}
+      = icon "thumbs-up"
       = post.reactions_count
 
     .d-inline.card-link
-      %i.align-middle{"data-feather" => "message-circle"}
+      = icon "message-circle"
       = post.comments_count
 
     = link_to post, class: 'card-link' do
-      %i.align-middle{"data-feather" => "eye"}
+      = icon "eye"
       View
 
     = link_to post.permalink_url, class: 'card-link', target: :_blank do
-      %i.align-middle{"data-feather" => "external-link"}
+      = icon "external-link"
       On Facebook

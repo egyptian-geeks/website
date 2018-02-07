@@ -7,7 +7,7 @@ class ImportPostService < ApplicationService
     fid = content['id']
     post = Post.find_or_create_by(fid: fid) do |post|
       post.fid = fid
-      post.message = content['message']
+      post.message = content['message']&.force_encoding('UTF-8')
       post.link = content['link']
       post.picture = content['picture']
       post.name = content['name']

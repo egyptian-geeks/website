@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129184327) do
+ActiveRecord::Schema.define(version: 20180204013821) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.text "message"
+    t.string "fid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fid"], name: "index_comments_on_fid", unique: true
+  end
 
   create_table "posts", force: :cascade do |t|
     t.text "message"
@@ -23,8 +33,20 @@ ActiveRecord::Schema.define(version: 20180129184327) do
     t.integer "user_id"
     t.text "picture"
     t.string "name"
+    t.integer "comments_count", default: 0, null: false
+    t.integer "reactions_count", default: 0, null: false
     t.index ["fid"], name: "index_posts_on_fid", unique: true
     t.index ["permalink_url"], name: "index_posts_on_permalink_url", unique: true
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.string "type", null: false
+    t.string "fid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fid"], name: "index_reactions_on_fid", unique: true
   end
 
   create_table "users", force: :cascade do |t|

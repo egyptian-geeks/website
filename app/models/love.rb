@@ -1,0 +1,2 @@
+class Love < Reaction
+end

@@ -1,0 +1,2 @@
+class Haha < Reaction
+end

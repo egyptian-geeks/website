@@ -1,0 +1,2 @@
+class Angry < Reaction
+end

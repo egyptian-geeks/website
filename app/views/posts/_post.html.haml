@@ -1,18 +1,5 @@
-= render 'users/h_card', user: post.user do
+= render 'shared/card' do
+  - if local_assigns.fetch :user_card, true
+    = render 'users/card', user: post.user
   = render post
-  .card-footer
-    .d-inline.card-link
-      = icon "thumbs-up"
-      = post.reactions_count
-
-    .d-inline.card-link
-      = icon "message-circle"
-      = post.comments_count
-
-    = link_to post, class: 'card-link' do
-      = icon "eye"
-      View
-
-    = link_to post.permalink_url, class: 'card-link', target: :_blank do
-      = icon "external-link"
-      On Facebook
+  = render 'posts/card_footer', post: post

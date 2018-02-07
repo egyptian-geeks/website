@@ -1,2 +1,3 @@
-= render 'users/h_card', user: comment.user do
+= render 'shared/card' do
+  = render 'users/card', user: comment.user
   .card-body= format_message(comment.message)

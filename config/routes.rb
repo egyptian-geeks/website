@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :posts
   resources :events, controller: :posts
   resources :links, controller: :posts

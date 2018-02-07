@@ -1,0 +1,5 @@
+= render 'users/user', user: @user
+= render partial: 'posts/post', collection: @posts, locals: {user_card: false}
+
+- if @next_posts_page
+  = link_to "Next page", user_path(before: @next_posts_page), class: 'btn btn-primary btn-lg btn-block'

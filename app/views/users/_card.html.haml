@@ -1,0 +1,16 @@
+.card-body
+  .card-text
+    = image_tag user_avatar(user), class: 'rounded float-left mr-3'
+    = link_to user_path(user), class: 'strong' do
+      %strong= user.name
+    %div
+      .badge.badge-primary
+        = user.posts.count
+        Posts
+      .badge.badge-secondary
+        = user.comments.count
+        Comments
+      - if local_assigns.fetch :render_reactions, false
+        .badge.badge-secondary
+          = user.reactions.count
+          Reactions

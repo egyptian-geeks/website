@@ -1,4 +1,11 @@
+= form_tag("/users", method: "get", class: 'form-inline mt-3 float-right') do
+  - options = [['Order by', ''], ['Posts', 'posts_count'], ['Comments', 'comments_count'], ['Reactions', 'reactions_count']]
+  = select_tag :order_by , options_for_select(options, params[:order_by]), class: 'form-control mr-2'
+  = submit_tag "Order", class: 'btn btn-primary'
+
+.clearfix
+
 = render partial: 'users/user', collection: @users
 
 - if @next_page
-  = link_to "Next page", users_path(before: @next_page), class: 'mt-3 btn btn-primary btn-lg btn-block'
+  = link_to "Next page", users_path(before: @next_page, order_by: params[:order_by]), class: 'mt-3 btn btn-primary btn-lg btn-block'

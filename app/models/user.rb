@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reactions
 
+  scope :order_by_most, ->(column) { order(column => :desc) }
+
   alias_attribute :to_param, :fid
 end

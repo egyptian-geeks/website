@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def page
-    @page ||= PageService.call(User, 20, params[:before])
+    @page ||= PageService.call(User, 20, params[:before], params[:order_by])
   end
 
   def next_page?

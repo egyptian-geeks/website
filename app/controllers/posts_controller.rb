@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = page
-    @next_page = page.last.created_at if next_page?
+    @next_page = params[:page].next if next_page?
   end
 
   # GET /posts/1
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def page
-    @page ||= PageService.call(Post, 20, params[:before])
+    @page ||= PageService.call(Post, params[:page], 20)
   end
 
   def next_page?

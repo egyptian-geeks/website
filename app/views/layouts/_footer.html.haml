@@ -1,14 +1,16 @@
 %footer
   %hr/
   .container
-    %p
+    %p.float-left
       Egyptian Geeks public posts.
-      %br/
-    %ul.nav
-      %li.nav-item
+    %ul.nav.list-inline.float-right
+      %li.nav-item.list-inline-item
         %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
           = icon "facebook"
           Facebook
+      %li.nav-item.list-inline-item
         %a.nav-link.active{:href => "https://github.com/egyptian-geeks"}
           = icon "github"
           Github
+    .clearfix
+  %br/

@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = page
-    @next_page = page.last.created_at if next_page?
+    @next_page = params[:page].next if next_page?
   end
 
   # GET /users/1
   def show
     @posts = posts_page
-    @next_posts_page = posts_page.last.created_at if next_posts_page?
+    @next_posts_page = params[:page].next if next_posts_page?
   end
 
   private
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def page
-    @page ||= PageService.call(User, 20, params[:before], params[:order_by])
+    @page ||= PageService.call(User.order_by_most(params[:order_by]), params[:page], 20)
   end
 
   def next_page?
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def posts_page
-    @posts_page ||= PageService.call(@user.posts, 20, params[:before])
+    @posts_page ||= PageService.call(@user.posts, params[:page], 20)
   end
 
   def next_posts_page?

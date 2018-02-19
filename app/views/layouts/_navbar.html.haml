@@ -10,6 +10,10 @@
             = icon "home"
             Home
         %li.nav-item.active
+          = link_to users_path, class: 'nav-link' do
+            = icon "users"
+            Users
+        %li.nav-item.active
           %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
             = icon "facebook"
             Facebook

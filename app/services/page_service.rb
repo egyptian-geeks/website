@@ -1,22 +1,16 @@
 class PageService < ApplicationService
-  def initialize(model, limit, before, order_by=nil)
-    @model = model
+  def initialize(collection, page, limit=20)
+    @collection = collection
+    @page = page
+    @offset = page.pred*limit
     @limit = limit
-    @order_by = order_by
-    @before = before || Time.zone.now
   end
 
   def call
-    if ['posts_count', 'comments_count', 'reactions_count'].include?(order_by)
-      model.order_by_most(order_by)
-    else
-      model.order(created_at: :desc)
-      .where('created_at < ?', before)
-    end
-      .limit(limit)
+    collection.offset(offset).limit(limit)
   end
 
   private
 
-  attr_reader :model, :limit, :before, :order_by
+  attr_reader :collection, :page, :limit, :offset
 end

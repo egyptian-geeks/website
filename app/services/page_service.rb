@@ -1,18 +1,21 @@
 class PageService < ApplicationService
-  def initialize(model, limit, before)
-    @model = model
+  def initialize(collection, page, limit=20)
+    @collection = collection
+    @page = page.present? ? page.to_i : 1
+    @offset = @page.pred*limit
     @limit = limit
-    @before = before || Time.zone.now
   end
 
   def call
-    model
-      .order(created_at: :desc)
-      .where('created_at < ?', before)
-      .limit(limit)
+    @collection = collection.offset(offset).limit(limit)
+    OpenStruct.new(collection: collection, page: page, next_page: next_page, per_page: limit)
   end
 
   private
 
-  attr_reader :model, :limit, :before
+  def next_page
+    page.next if collection.size == limit
+  end
+
+  attr_reader :collection, :page, :limit, :offset
 end

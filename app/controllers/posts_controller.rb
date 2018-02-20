@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
+  include PageableConcern
   before_action :set_post, only: :show
 
   # GET /posts
   def index
-    @posts = page
-    @next_page = page.last.created_at if next_page?
+    @posts = paginate Post
   end
 
   # GET /posts/1
@@ -14,13 +14,5 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find_by!(fid: params[:id])
-  end
-
-  def page
-    @page ||= PageService.call(Post, 20, params[:before])
-  end
-
-  def next_page?
-    page.size == 20
   end
 end

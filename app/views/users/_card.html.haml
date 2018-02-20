@@ -5,12 +5,12 @@
       %strong= user.name
     %div
       .badge.badge-primary
-        = user.posts.count
+        = user.posts_count
         Posts
       .badge.badge-secondary
-        = user.comments.count
+        = user.comments_count
         Comments
       - if local_assigns.fetch :render_reactions, false
         .badge.badge-secondary
-          = user.reactions.count
+          = user.reactions_count
           Reactions

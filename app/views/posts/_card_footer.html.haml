@@ -14,3 +14,6 @@
   = link_to post.permalink_url, class: 'card-link', target: :_blank do
     = icon "external-link"
     On Facebook
+
+  .float-right
+    = post.created_at.in_time_zone("Cairo").strftime('%Y-%m-%d %H:%M')

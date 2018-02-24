@@ -1,8 +1,8 @@
 class PageService < ApplicationService
-  def initialize(collection, page, limit=20)
+  def initialize(collection, page, limit = 20)
     @collection = collection
     @page = page.present? ? page.to_i : 1
-    @offset = @page.pred*limit
+    @offset = @page.pred * limit
     @limit = limit
   end
 

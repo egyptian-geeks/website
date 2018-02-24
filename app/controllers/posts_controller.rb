@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = paginate Post
+    @posts = OrderService.call(Post, :created_at)
+    @posts = paginate(@posts)
   end
 
   # GET /posts/1

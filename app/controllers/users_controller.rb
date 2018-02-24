@@ -4,7 +4,15 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = paginate User.order_by_most(params[:order_by])
+    @order_options = {
+      'Order by' => '',
+      'Posts' => 'posts_count',
+      'Comments' => 'comments_count',
+      'Reactions' => 'reactions_count'
+    }
+    @users = OrderService.call(User, params[:order_by])
+    @users = SearchService.call(@users, :name, params[:keyword])
+    @users = paginate(@users)
   end
 
   # GET /users/1

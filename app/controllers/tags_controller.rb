@@ -4,12 +4,15 @@ class TagsController < ApplicationController
 
   # GET /tags
   def index
-    @tags = paginate Tag.order_by_most_posts, 10000
+    @tags = OrderService.call(Tag, :posts_count)
+    @tags = SearchService.call(@tags, :title, params[:keyword])
+    @tags = paginate(@tags, 10000)
   end
 
   # GET /tags/1
   def show
-    @posts = paginate @tag.posts
+    @posts = OrderService.call(@tag.posts)
+    @posts = paginate(@posts)
   end
 
   private

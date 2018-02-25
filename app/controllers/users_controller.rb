@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @posts = paginate @user.posts
+    @posts = OrderService.call(@user.posts)
+    @posts = paginate(@posts)
   end
 
   private

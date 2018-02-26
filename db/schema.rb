@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219150859) do
+ActiveRecord::Schema.define(version: 20180223230457) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20180219150859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fid"], name: "index_comments_on_fid", unique: true
+  end
+
+  create_table "post_tags", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "tag_id"], name: "index_post_tags_on_post_id_and_tag_id", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,6 +55,14 @@ ActiveRecord::Schema.define(version: 20180219150859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fid"], name: "index_reactions_on_fid", unique: true
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.integer "posts_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_tags_on_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|

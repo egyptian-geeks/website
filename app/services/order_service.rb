@@ -1,5 +1,5 @@
 class OrderService < ApplicationService
-  def initialize(collection, column, order = :desc)
+  def initialize(collection, column = :created_at, order = :desc)
     @collection = collection
     @column = column.present? ? column : :created_at
     @order = order

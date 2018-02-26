@@ -1,10 +1,10 @@
 %nav.navbar.navbar-dark.bg-primary.navbar-expand-lg
   .container
-    %a.navbar-brand{:href => "#"} Egyptian Geeks
+    = link_to "Egyptian Geeks", root_path, class: 'navbar-brand'
     %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
-      %ul.navbar-nav
+      %ul.navbar-nav.mr-auto
         %li.nav-item.active
           = link_to root_path, class: 'nav-link' do
             = icon "home"
@@ -13,6 +13,11 @@
           = link_to users_path, class: 'nav-link' do
             = icon "users"
             Users
+        %li.nav-item.active
+          = link_to tags_path, class: 'nav-link' do
+            = icon "tag"
+            Tags
+      %ul.navbar-nav.ml-auto
         %li.nav-item.active
           %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
             = icon "facebook"

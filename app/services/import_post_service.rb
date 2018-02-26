@@ -19,6 +19,7 @@ class ImportPostService < ApplicationService
     end
     ImportCommentService.call(post, content['comments']['data']) if content['comments'].present?
     ImportReactionService.call(post, content['reactions']['data']) if content['reactions'].present?
+    ImportTagService.call(post) if post.message.present?
 
     return post
   end

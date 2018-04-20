@@ -3,6 +3,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
+    "@antv/g2": "^3.0.6",
     "bootstrap": "4.0.0",
     "feather-icons": "^4.5.0",
     "jquery": "^3.3.1"

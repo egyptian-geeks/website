@@ -1,0 +1,32 @@
+%h3.mt-3 Posts Per Year
+%hr
+#posts_chart.mt-3
+
+:javascript
+  $(document).ready(function() {
+    $.getJSON("/charts/get_posts_count", function(data) {
+      const chart = new G2.Chart({
+        container: 'posts_chart',
+        forceFit: true,
+        height: window.innerHeight
+      });
+      chart.source(data);
+      chart.scale('count', {
+        min: 0
+      });
+      chart.scale('date', {
+        range: [ 0 , 1 ]
+      });
+      chart.tooltip({
+        crosshairs: {
+          type: 'line'
+        }
+      });
+      chart.line().position('date*count');
+      chart.point().position('date*count').size(4).shape('circle').style({
+        stroke: '#fff',
+        lineWidth: 1
+      });
+      chart.render();
+    });
+  });

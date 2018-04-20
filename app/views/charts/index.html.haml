@@ -1,0 +1,25 @@
+%h1.mt-3
+  = icon "bar-chart"
+  Charts
+%hr
+.row
+  = render 'card' do
+    = link_to posts_charts_path do
+      %h5 Posts
+      %hr
+    = image_tag asset_path('basic-e575b.png'), class: 'img-fluid'
+  = render 'card' do
+    = link_to '#' do
+      %h5 Comments
+    %hr
+    = image_tag asset_path('basic-e575b.png'), class: 'img-fluid'
+  = render 'card' do
+    = link_to '#' do
+      %h5 Reactions
+    %hr
+    = image_tag asset_path('basic-e575b.png'), class: 'img-fluid'
+  = render 'card' do
+    = link_to '#' do
+      %h5 Tags
+    %hr
+    = image_tag asset_path('donut-ef6dd.png'), class: 'img-fluid'

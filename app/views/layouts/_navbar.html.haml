@@ -17,6 +17,10 @@
           = link_to tags_path, class: 'nav-link' do
             = icon "tag"
             Tags
+        %li.nav-item.active
+          = link_to charts_path, class: 'nav-link' do
+            = icon "pie-chart"
+            Charts
       %ul.navbar-nav.ml-auto
         %li.nav-item.active
           %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}

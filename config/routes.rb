@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :users
   resources :tags
+  resources :charts do
+    collection do
+      get  'posts'
+      get  'get_posts_count'
+    end
+  end
   resources :posts
   resources :events, controller: :posts
   resources :links, controller: :posts

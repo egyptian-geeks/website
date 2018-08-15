@@ -1,0 +1,32 @@
+%h3.mt-3 #{type.upcase_first} Per Year
+%hr
+#line-chart.mt-3
+
+:javascript
+  $(document).ready(function() {
+    const chart = new G2.Chart({
+      container: 'line-chart',
+      forceFit: true,
+      height: window.innerHeight
+    });
+    chart.source(#{raw data}, {
+      //
+    });
+    chart.scale('count', {
+      min: 0
+    });
+    chart.scale('date', {
+      range: [ 0 , 1 ]
+    });
+    chart.tooltip({
+      crosshairs: {
+        type: 'line'
+      }
+    });
+    chart.line().position('date*count');
+    chart.point().position('date*count').size(4).shape('circle').style({
+      stroke: '#fff',
+      lineWidth: 1
+    });
+    chart.render();
+  });

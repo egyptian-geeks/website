@@ -19,15 +19,20 @@ class ImportDirectoryService < ApplicationService
 
     puts "=> Importing #{files_count} Post"
 
-    Post.transaction do
-      files.each_with_index do |file, i|
-        content = YAML.load_file(file)
-        Rails.logger.warn("Importing: #{file}")
-        import_post(content)
+    index = 0
+    files.each_slice(1000) do |files_slice|
+      Post.transaction do
+        files_slice.each do |file|
+          content = YAML.load_file(file)
+          Rails.logger.warn("Importing: #{file}")
+          import_post(content)
 
-        # Progress Bar
-        if i % 100 == 0 || i + 1 == files_count
-          printf("\r[%-50s] #{i + 1}/#{files_count} ", '=' * ((i+1.0) / files_count * 50))
+          # Progress Bar
+          if index % 100 == 0 || index + 1 == files_count
+            printf("\r[%-50s] #{index + 1}/#{files_count} ", '=' * ((index+1.0) / files_count * 50))
+          end
+
+          index += 1
         end
       end
     end

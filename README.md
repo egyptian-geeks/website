@@ -8,7 +8,7 @@ group related content.
 # Requirements
 
 * Ruby 2.6.6
-* SQlite3
+* Postgresql
 * Nodejs
 * npm
 * Yarn
@@ -39,6 +39,8 @@ The following command was used to generate project files
 ```
 rails new website --database=sqlite3 --skip-action-mailer --skip-spring --skip-action-cable --skip-coffee --skip-test
 ```
+
+Note: We migrated to Postgresql later during development.
 
 # Deployment
 

@@ -7,7 +7,7 @@ group related content.
 
 # Requirements
 
-* Ruby 2.5.0
+* Ruby 2.6.6
 * SQlite3
 * Nodejs
 * npm

@@ -25,7 +25,7 @@ echo "[*] Building images"
 sshin docker-compose build $SERVICES
 
 echo "[*] Migrating database"
-sshin docker-compose run -T --rm web rake db:migrate db:seed
+sshin docker-compose run -T --rm web rails db:migrate db:seed
 
 echo "[*] Stop old containers"
 sshin docker-compose stop $SERVICES

@@ -18,4 +18,4 @@ test:
 
 production:
   <<: *default
-  database: egygeeks_production
+  database: <%= ENV.fetch('POSTGRES_DB', 'egygeeks_production') %>

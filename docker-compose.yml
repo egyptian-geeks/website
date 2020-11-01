@@ -1,0 +1,23 @@
+version: '2'
+services:
+  db:
+    image: "postgres:13"
+    restart: always
+    env_file:
+      - /root/env/egygeeks
+    expose:
+      - '5432'
+    volumes:
+      - /root/data/egygeeks/db:/var/lib/postgresql/data
+
+  web:
+    build: .
+    env_file:
+      - /root/env/egygeeks
+    depends_on:
+      - db
+    links:
+      - db
+    restart: always
+    ports:
+      - '127.0.0.1:5000:80'

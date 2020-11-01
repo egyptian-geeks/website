@@ -9,8 +9,7 @@
     = javascript_include_tag 'application'
   %body
     = render 'layouts/navbar'
-    .container
-      .row.justify-content-md-center
-        .col-lg-8
-          = yield
+    %section.section
+      .container
+        = yield
     = render 'layouts/footer'

@@ -1,28 +1,24 @@
-%nav.navbar.navbar-dark.bg-primary.navbar-expand-lg
-  .container
-    = link_to "Egyptian Geeks", root_path, class: 'navbar-brand'
-    %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
-    #navbarNav.collapse.navbar-collapse
-      %ul.navbar-nav.mr-auto
-        %li.nav-item.active
-          = link_to root_path, class: 'nav-link' do
-            = icon "home"
-            Home
-        %li.nav-item.active
-          = link_to users_path, class: 'nav-link' do
-            = icon "users"
-            Users
-        %li.nav-item.active
-          = link_to tags_path, class: 'nav-link' do
-            = icon "tag"
-            Tags
-      %ul.navbar-nav.ml-auto
-        %li.nav-item.active
-          %a.nav-link.active{:href => "https://www.facebook.com/groups/egyptian.geeks/"}
-            = icon "facebook"
-            Facebook
-        %li.nav-item.active
-          %a.nav-link.active{:href => "https://github.com/egyptian-geeks"}
-            = icon "github"
-            Github
+%nav.navbar.is-dark{role: :navigation, 'aria-label': 'main navigation'}
+  .navbar-brand
+    %a.navbar-item{ href: '/' }
+      %strong Egyptian Geeks
+
+  .navbar-menu
+    .navbar-start
+      = link_to root_path, class: 'navbar-item' do
+        = icon "home"
+        Home
+      = link_to users_path, class: 'navbar-item' do
+        = icon "users"
+        Users
+      = link_to tags_path, class: 'navbar-item' do
+        = icon "tag"
+        Tags
+
+    .navbar-end
+      %a.navbar-item{href: "https://www.facebook.com/groups/egyptian.geeks/"}
+        = icon "facebook"
+        Facebook
+      %a.navbar-item{href: "https://github.com/egyptian-geeks"}
+        = icon "github"
+        Github

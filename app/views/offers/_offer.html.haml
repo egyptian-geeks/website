@@ -1,5 +1,4 @@
-.card-body
+.card-content
   = render 'shared/original_post', post: offer
-.card-body
-  .card-text
-    = format_message(offer.message)
+.card-content
+  = format_message(offer.message)

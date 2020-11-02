@@ -1,5 +1,3 @@
-.card-body
+.card-content
+  = format_message(video.message)
   = render 'shared/original_post', post: video
-.card-body
-  .card-text
-    = format_message(video.message)

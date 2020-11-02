@@ -7,7 +7,7 @@ class SearchService < ApplicationService
 
   def call
     return @collection unless keyword
-    collection.where("#{column} LIKE ?", "%#{keyword}%")
+    collection.where("#{column} ILIKE ?", "%#{keyword}%")
   end
 
   private

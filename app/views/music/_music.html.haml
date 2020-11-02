@@ -1,5 +1,4 @@
-.card-body
+.card-content
   = render 'shared/original_post', post: music
-.card-body
-  .card-text
-    = format_message(music.message)
+.card-content
+  = format_message(music.message)

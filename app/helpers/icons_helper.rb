@@ -1,5 +1,7 @@
 module IconsHelper
   def icon(name)
-    tag.i nil, class: 'align-middle', data: { feather: name }
+    tag.span class: :icon do
+      tag.i nil, data: { feather: name }
+    end
   end
 end

@@ -1,11 +1,15 @@
-= form_tag(users_path, method: "get", class: 'form-inline mt-3 float-right') do
-  = text_field_tag :keyword, params[:keyword], class: 'form-control mr-2', placeholder: "Search..."
-  = select_tag :order_by , options_for_select(@order_options, params[:order_by]), class: 'form-control mr-2'
-  = submit_tag "Go", class: 'btn btn-primary'
+= form_tag(users_path, method: "get", class: 'form mb-5') do
+  .field.has-addons
+    .control
+      = text_field_tag :keyword, params[:keyword], class: 'input', placeholder: "Search..."
+    .control
+      .select= select_tag :order_by , options_for_select(@order_options, params[:order_by])
+    .control
+      = submit_tag "Go", class: 'button is-primary'
 
 .clearfix
 
 = render partial: 'users/user', collection: @users
 
 - if @next_page
-  = link_to "Next page", users_path(request.query_parameters.merge(page: @next_page)), class: 'mt-3 btn btn-primary btn-lg btn-block'
+  = link_to "Next page", users_path(request.query_parameters.merge(page: @next_page)), class: 'button'

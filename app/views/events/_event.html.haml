@@ -1,5 +1,4 @@
-.card-body
+.card-content
   = render 'shared/original_post', post: event
-.card-body
-  .card-text
-    = format_message(event.message)
+.card-content
+  = format_message(event.message)

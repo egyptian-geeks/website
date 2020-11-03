@@ -12,4 +12,4 @@
 = render partial: 'users/user', collection: @users
 
 - if @next_page
-  = link_to "Next page", users_path(request.query_parameters.merge(page: @next_page)), class: 'button'
+  = link_to "Next page", users_path(request.query_parameters.merge(page: @next_page)), class: 'button is-fullwidth'

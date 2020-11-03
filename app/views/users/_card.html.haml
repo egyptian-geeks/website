@@ -1,8 +1,7 @@
 .card-content
   .media
     .media-left
-      %figure.image.is-48x48
-        = image_tag user_avatar(user)
+      %figure.image.is-48x48= image_tag user_avatar(user), class: :user_avatar
     .media-content
       = link_to user_path(user) do
         %strong= user.name

@@ -1,4 +1,11 @@
 .card-footer
+  %small.card-footer-item.has-text-grey-light
+    = icon "far fa-clock"
+    %span
+      = time_ago_in_words post.created_at
+      ago
+
+.card-footer
   .card-footer-item
     = icon "far fa-thumbs-up"
     %span= post.reactions_count
@@ -14,7 +21,3 @@
   = link_to post.permalink_url, class: 'card-footer-item', target: :_blank do
     = icon "fab fa-facebook-square"
     %span On Facebook
-
-  .card-footer-item.has-text-grey
-    = icon "far fa-clock"
-    %span= post.created_at.in_time_zone("Cairo").strftime('%Y-%m-%d %H:%M')

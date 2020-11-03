@@ -11,4 +11,4 @@
   = link_to t.title, t, class: :tag, style: "font-size: #{font_size}em;"
 
 - if @next_page
-  = link_to "Next page", tags_path(request.query_parameters.merge(page: @next_page)), class: 'button'
+  = link_to "Next page", tags_path(request.query_parameters.merge(page: @next_page)), class: 'button is-fullwidth'

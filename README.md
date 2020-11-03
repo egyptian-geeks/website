@@ -3,8 +3,6 @@
 A website built with ruby on rails to show group posts, analytics and other
 group related content.
 
-![ScreenShot](app/assets/images/screenshot.png?raw=true "ScreenShot")
-
 # Requirements
 
 * Ruby 2.6.6

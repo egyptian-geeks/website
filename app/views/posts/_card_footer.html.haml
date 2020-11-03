@@ -1,20 +1,20 @@
 .card-footer
   .card-footer-item
-    = icon "thumbs-up"
-    = post.reactions_count
+    = icon "far fa-thumbs-up"
+    %span= post.reactions_count
 
   .card-footer-item
-    = icon "message-circle"
-    = post.comments_count
+    = icon "far fa-comment"
+    %span= post.comments_count
 
   = link_to post, class: 'card-footer-item' do
-    = icon "eye"
-    View
+    = icon "far fa-eye"
+    %span View
 
   = link_to post.permalink_url, class: 'card-footer-item', target: :_blank do
-    = icon "external-link"
-    On Facebook
+    = icon "fab fa-facebook-square"
+    %span On Facebook
 
   .card-footer-item.has-text-grey
-    = icon "clock"
-    = post.created_at.in_time_zone("Cairo").strftime('%Y-%m-%d %H:%M')
+    = icon "far fa-clock"
+    %span= post.created_at.in_time_zone("Cairo").strftime('%Y-%m-%d %H:%M')

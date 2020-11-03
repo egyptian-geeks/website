@@ -1,5 +1,6 @@
 /*
  *= require bulma/css/bulma.css
+ *= require @fortawesome/fontawesome-free/css/all.css
  *= require_tree .
  *= require_self
  */

@@ -3,8 +3,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "bulma": "0.9.1",
-    "feather-icons": "^4.5.0",
     "jquery": "^3.3.1"
   }
 }

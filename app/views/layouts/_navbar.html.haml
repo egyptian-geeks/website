@@ -6,19 +6,19 @@
   .navbar-menu
     .navbar-start
       = link_to root_path, class: 'navbar-item' do
-        = icon "home"
-        Home
+        = icon "fas fa-home"
+        %span Home
       = link_to users_path, class: 'navbar-item' do
-        = icon "users"
-        Users
+        = icon "fas fa-users"
+        %span Users
       = link_to tags_path, class: 'navbar-item' do
-        = icon "tag"
-        Tags
+        = icon "fas fa-tags"
+        %span Tags
 
     .navbar-end
       %a.navbar-item{href: "https://www.facebook.com/groups/egyptian.geeks/"}
-        = icon "facebook"
-        Facebook
+        = icon "fab fa-facebook-square"
+        %span Facebook
       %a.navbar-item{href: "https://github.com/egyptian-geeks"}
-        = icon "github"
-        Github
+        = icon "fab fa-github-square"
+        %span Github

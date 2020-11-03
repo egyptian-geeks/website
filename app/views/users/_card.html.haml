@@ -3,15 +3,21 @@
     .media-left
       %figure.image.is-48x48= image_tag user_avatar(user), class: :user_avatar
     .media-content
-      = link_to user_path(user) do
+      = link_to user_path(user), class: 'is-block' do
         %strong= user.name
       .tag
-        = user.posts_count
-        Posts
+        = icon 'far fa-newspaper'
+        %span
+          = user.posts_count
+          Posts
       .tag
-        = user.comments_count
-        Comments
+        = icon 'far fa-comment'
+        %span
+          = user.comments_count
+          Comments
       - if local_assigns.fetch :render_reactions, false
         .tag
-          = user.reactions_count
-          Reactions
+          = icon 'far fa-smile-wink'
+          %span
+            = user.reactions_count
+            Reactions

@@ -1,6 +1,6 @@
 = form_tag(users_path, method: "get", class: 'form mb-5') do
   .field.has-addons
-    .control
+    .control.is-expanded
       = text_field_tag :keyword, params[:keyword], class: 'input', placeholder: "Search..."
     .control
       .select= select_tag :order_by , options_for_select(@order_options, params[:order_by])

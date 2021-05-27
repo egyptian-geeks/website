@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'haml'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0'
 gem 'sass-rails', '~> 5.0'
 gem 'pg'
